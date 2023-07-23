@@ -69,5 +69,19 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  attr_accessor :isbn
+  attr_accessor :price
+
+  def initialize(isbn, price)
+    @isbn = isbn
+    @price = Float(price)
+    raise ArgumentError.new(
+      "ArgumentError"
+    )if isbn.length == 0 || price <= 0   
+
+  end
+
+  def price_as_string
+    "$#{'%.2f' % @price}"
+  end
 end
